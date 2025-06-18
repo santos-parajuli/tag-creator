@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
+<g>
+    <!-- Thick X shape (diagonal lines) -->
+    <path d="M60,545c-1.28,0-2.559-0.488-3.536-1.465c-1.953-1.952-1.953-5.118,0-7.07l480-480c1.951-1.952,5.119-1.952,7.07,0
+        c1.953,1.953,1.953,5.119,0,7.071l-480,480C62.559,544.512,61.28,545,60,545z" 
+        stroke="#000000" stroke-width="40" fill="none"/>
+    <path d="M540,545c-1.279,0-2.56-0.488-3.535-1.465l-480-480c-1.953-1.953-1.953-5.119,0-7.071c1.953-1.952,5.118-1.952,7.071,0
+        l480,480c1.953,1.952,1.953,5.118,0,7.07C542.56,544.512,541.279,545,540,545z" 
+        stroke="#000000" stroke-width="40" fill="none"/>
+    
+    <!-- Thick outer border -->
+    <rect x="30" y="30" width="540" height="540" 
+          stroke="#000000" stroke-width="30" fill="none"/>
+</g>
+</svg>
