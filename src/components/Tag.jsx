@@ -21,16 +21,16 @@ const Tag = ({ fabric, labelType }) => {
 
 					{/* Content rows with right-aligned labels */}
 					<div className='flex text-[7.5pt] my-[0.25cm]'>
-						<span className='w-22 text-right font-light text-zinc-600 mr-2'>CONTENT</span>
-						<span className='font-normal'>{fabric.content}</span>
+						<span className='w-22 text-right font-light  mr-2'>CONTENT</span>
+						<span className='font-normal text-zinc-600 '>{fabric.content}</span>
 					</div>
 					<div className='flex text-[7.5pt] my-[0.25cm]'>
-						<span className='w-22 text-right mr-2 font-light text-zinc-600'>DOUBLE RUBS</span>
-						<span className='font-normal'>{fabric.rubs}</span>
+						<span className='w-22 text-right mr-2 font-light '>DOUBLE RUBS</span>
+						<span className='font-normal text-zinc-600 '>{fabric.rubs}</span>
 					</div>
 					<div className='flex text-[7.5pt] my-[0.25cm]'>
-						<span className='w-22 text-right mr-2 font-light text-zinc-600'>WIDTH</span>
-						<span className='font-normal'>{fabric.width}</span>
+						<span className='w-22 text-right mr-2 font-light'>WIDTH</span>
+						<span className='font-normal text-zinc-600 '>{fabric.width}</span>
 					</div>
 
 					{/* Usage */}
@@ -41,7 +41,7 @@ const Tag = ({ fabric, labelType }) => {
 								<QRCode fgColor='#000000' value={'https://www.tonicliving.ca/'} size={75} />
 							</div>
 						</div>
-						<div className=' font-normal flex flex-wrap flex-col text-[7.5pt] gap-[0.25cm] mb-[0.3cm]'>
+						<div className=' font-normal text-zinc-600  flex flex-wrap flex-col text-[7.5pt] gap-[0.25cm] mb-[0.3cm]'>
 							{['Drapery', 'Upholstery', 'Romans', 'High-Performance', 'Pillows'].map((item) => (
 								<div key={item} className='flex flex-row items-center '>
 									<div className='w-2 h-2 mr-1'>
