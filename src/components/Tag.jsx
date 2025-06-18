@@ -1,12 +1,12 @@
 import QRCode from 'react-qr-code';
 import React from 'react';
 
-const Tag = () => {
+const Tag = ({ fabric, labelType }) => {
 	return (
 		<div className='w-[15.5cm] h-[8.5cm] border border-gray-300 font-sans flex m-auto'>
 			{/* Vertical Fabric Type label */}
 			<div className='bg-zinc-300 p-4 text-zinc-400 flex items-center justify-center w-[1.4cm]'>
-				<h2 className='uppercase text-[1.7rem] whitespace-nowrap transform -rotate-90 origin-center'>High Performance</h2>
+				<h2 className='uppercase text-[1.7rem] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
 			</div>
 
 			{/* Main content */}
@@ -15,22 +15,22 @@ const Tag = () => {
 					{/* Name and Color */}
 					<div className='text-xl my-3 tracking-wider'>
 						<h1 className='font-medium uppercase'>
-							Brooklyn Stripe,<span className='font-normal capitalize'> Chocolate</span>
+							{fabric.fabric},<span className='font-normal capitalize'> {fabric.color}</span>
 						</h1>
 					</div>
 
 					{/* Content rows with right-aligned labels */}
 					<div className='flex text-xs my-[0.1cm]'>
 						<span className='w-22 text-right mr-2'>CONTENT</span>
-						<span className='font-medium'>81.55% polyester, 18.45% cotton</span>
+						<span className='font-medium'>{fabric.content}</span>
 					</div>
 					<div className='flex text-xs my-[0.1cm]'>
 						<span className='w-22 text-right mr-2'>DOUBLE RUBS</span>
-						<span className='font-medium'>33,000</span>
+						<span className='font-medium'>{fabric.rubs}</span>
 					</div>
 					<div className='flex text-xs my-[0.1cm]'>
 						<span className='w-22 text-right mr-2'>WIDTH</span>
-						<span className='font-medium'>54.25"</span>
+						<span className='font-medium'>{fabric.width}</span>
 					</div>
 
 					{/* Usage */}
