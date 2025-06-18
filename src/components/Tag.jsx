@@ -6,7 +6,7 @@ const Tag = ({ fabric, labelType }) => {
 		<div className='w-[15.5cm] h-[8.5cm] border border-gray-300 font-sans flex m-auto text-gray-900'>
 			{/* Vertical Fabric Type label */}
 			<div className='bg-zinc-300 p-4 text-zinc-400 flex items-center justify-center w-[1.4cm]'>
-				<h2 className='uppercase text-[16.3pt] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
+				<h2 className='uppercase tracking-wider text-[16.3pt] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
 			</div>
 
 			{/* Main content */}
