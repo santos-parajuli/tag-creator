@@ -1,4 +1,4 @@
-ximport QRCode from 'react-qr-code';
+import QRCode from 'react-qr-code';
 import React from 'react';
 
 const Tag = ({ fabric, labelType }) => {
