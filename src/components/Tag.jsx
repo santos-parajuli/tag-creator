@@ -5,9 +5,21 @@ const Tag = ({ fabric, labelType }) => {
 	return (
 		<div className='w-[15.5cm] font-[Browstd] h-[8.5cm] border border-gray-300 font-sans flex m-auto leading-[8pt] '>
 			{/* Vertical Fabric Type label */}
-			<div className='bg-zinc-200 p-4 text-zinc-400/60 flex items-center justify-center w-[1.25cm]'>
-				<h2 className='uppercase  text-[16.3pt] leading-[19pt] tracking-[0.125em] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
-			</div>
+			{/* Vertical Fabric Type label */}
+<div className='bg-zinc-200 p-4 text-zinc-400/60 flex items-end justify-center w-[1.25cm] h-full relative'>
+  <h2 
+    className='uppercase text-[16.3pt] leading-[19pt] tracking-[0.125em] whitespace-nowrap absolute bottom-0'
+    style={{
+      writingMode: 'vertical-rl',
+      transform: 'rotate(180deg)',
+      left: '50%',
+      transformOrigin: 'bottom center',
+      translate: '-50% 0'
+    }}
+  >
+    {labelType}
+  </h2>
+</div>
 
 			{/* Main content */}
 			<div className=' pl-[0.5cm] w-[9.1cm] flex text-zinc-500 flex-col justify-between tracking-[0.05em] '>
