@@ -36,7 +36,7 @@ const Tag = ({ fabric, labelType }) => {
 					{/* Usage */}
 					<div className='flex text-[7.5pt] mt-3'>
 						<div className='flex flex-col items-end mr-2'>
-							<span className='w-22 text-right font-light text-zinc-600'>USAGE</span>
+							<span className='w-22 text-right font-light'>USAGE</span>
 							<div className='h-[2cm] w-[2cm]  mt-1'>
 								<QRCode fgColor='#000000' value={'https://www.tonicliving.ca/'} size={75} />
 							</div>
