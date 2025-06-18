@@ -48,7 +48,7 @@
 	--radius-xl: calc(var(--radius) + 4px);
 }
 body {
-	font-family: 'Browst';
+	font-family: 'Browstd';
 }
 
 :root {
