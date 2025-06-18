@@ -5,12 +5,12 @@ const Tag = ({ fabric, labelType }) => {
 	return (
 		<div className='w-[15.5cm] h-[8.5cm] border border-gray-300 font-sans flex m-auto text-zinc-700 leading-[8pt] '>
 			{/* Vertical Fabric Type label */}
-			<div className='bg-zinc-200 p-4 text-zinc-400/80 flex items-center justify-center w-[1.25cm]'>
+			<div className='bg-zinc-200 p-4 text-zinc-400/60 flex items-center justify-center w-[1.25cm]'>
 				<h2 className='uppercase  text-[16.3pt] leading-[19pt] tracking-[0.125em] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
 			</div>
 
 			{/* Main content */}
-			<div className=' pl-[0.5cm] w-[9.1cm] flex flex-col justify-between tracking-[0.05em] '>
+			<div className=' pl-[0.5cm] w-[9.1cm] flex text-zinc-500 flex-col justify-between tracking-[0.05em] '>
 				<div>
 					{/* Name and Color */}
 					<div className='text-[12.75pt] my-5'>
