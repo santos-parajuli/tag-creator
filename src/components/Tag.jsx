@@ -15,33 +15,33 @@ const Tag = ({ fabric, labelType }) => {
 					{/* Name and Color */}
 					<div className='text-[12.75pt] my-5 tracking-wider'>
 						<h1 className='font-medium uppercase'>
-							{fabric.fabric},<span className='font-normal capitalize'> {fabric.color}</span>
+							{fabric.fabric},<span className='font-light capitalize'> {fabric.color}</span>
 						</h1>
 					</div>
 
 					{/* Content rows with right-aligned labels */}
 					<div className='flex text-[7.5pt] my-[0.1cm]'>
-						<span className='w-22 text-right mr-2'>CONTENT</span>
-						<span className='font-medium'>{fabric.content}</span>
+						<span className='w-22 text-right font-light mr-2'>CONTENT</span>
+						<span className='font-normal'>{fabric.content}</span>
 					</div>
 					<div className='flex text-[7.5pt] my-[0.1cm]'>
-						<span className='w-22 text-right mr-2'>DOUBLE RUBS</span>
-						<span className='font-medium'>{fabric.rubs}</span>
+						<span className='w-22 text-right mr-2 font-light'>DOUBLE RUBS</span>
+						<span className='font-normal'>{fabric.rubs}</span>
 					</div>
 					<div className='flex text-[7.5pt] my-[0.1cm]'>
-						<span className='w-22 text-right mr-2'>WIDTH</span>
-						<span className='font-medium'>{fabric.width}</span>
+						<span className='w-22 text-right mr-2 font-light'>WIDTH</span>
+						<span className='font-normal'>{fabric.width}</span>
 					</div>
 
 					{/* Usage */}
 					<div className='flex text-[7.5pt] mt-3'>
 						<div className='flex flex-col items-end mr-2'>
-							<span className='w-22 text-right'>USAGE</span>
+							<span className='w-22 text-right font-light'>USAGE</span>
 							<div className='h-[2cm] w-[2cm]  mt-1'>
 								<QRCode fgColor='#000000' value={'https://www.tonicliving.ca/'} size={75} />
 							</div>
 						</div>
-						<div className=' font-medium flex flex-wrap flex-col text-[7.5pt] gap-1 mb-[0.3cm]'>
+						<div className=' font-medium flex flex-wrap flex-col text-[7.5pt] font-normal gap-1 mb-[0.3cm]'>
 							{['Drapery', 'Upholstery', 'Romans', 'High-Performance', 'Pillows'].map((item) => (
 								<div key={item} className='flex flex-row items-center '>
 									<div className='w-2 h-2 mr-1'>
