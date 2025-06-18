@@ -3,10 +3,10 @@ import React from 'react';
 
 const Tag = ({ fabric, labelType }) => {
 	return (
-		<div className='w-[15.5cm] h-[8.5cm] border border-gray-300 font-sans flex m-auto text-gray-600 '>
+		<div className='w-[15.5cm] h-[8.5cm] border border-gray-300 font-sans flex m-auto text-zinc-800 leading-[8pt] '>
 			{/* Vertical Fabric Type label */}
-			<div className='bg-zinc-100 p-4 text-zinc-200 flex items-center justify-center w-[1.4cm]'>
-				<h2 className='uppercase  text-[16.3pt] tracking-[0.125em] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
+			<div className='bg-zinc-200 p-4 text-zinc-300 flex items-center justify-center w-[1.4cm]'>
+				<h2 className='uppercase  text-[16.3pt] leading-[19pt] tracking-[0.125em] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
 			</div>
 
 			{/* Main content */}
@@ -14,7 +14,7 @@ const Tag = ({ fabric, labelType }) => {
 				<div>
 					{/* Name and Color */}
 					<div className='text-[12.75pt] my-5'>
-						<h1 className='font-medium uppercase tracking-[0.125em]'>
+						<h1 className='font-medium uppercase tracking-[0.125em] leading-[19pt]'>
 							{fabric.fabric},<span className='font-light capitalize'> {fabric.color}</span>
 						</h1>
 					</div>
