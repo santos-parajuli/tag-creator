@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 @font-face {
 	font-family: 'Browstd';
-	src: url('/browstd.otf') format('opentype');
+	src: url('/brownstd.otf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
