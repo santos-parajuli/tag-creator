@@ -3,17 +3,17 @@ import React from 'react';
 
 const Tag = ({ fabric, labelType }) => {
 	return (
-		<div className='w-[15.5cm] h-[8.5cm] border border-gray-300 font-sans flex m-auto text-gray-900'>
+		<div className='w-[15.5cm] h-[8.5cm] border border-gray-300 font-sans flex m-auto text-gray-500 tracking-widest'>
 			{/* Vertical Fabric Type label */}
-			<div className='bg-zinc-300 p-4 text-zinc-400 flex items-center justify-center w-[1.4cm]'>
-				<h2 className='uppercase tracking-wider text-[16.3pt] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
+			<div className='bg-zinc-100 p-4 text-zinc-200 flex items-center justify-center w-[1.4cm]'>
+				<h2 className='uppercase  text-[16.3pt] whitespace-nowrap transform -rotate-90 origin-center'>{labelType}</h2>
 			</div>
 
 			{/* Main content */}
-			<div className=' pl-[0.5cm] w-[9cm] flex flex-col justify-between tracking-wide'>
+			<div className=' pl-[0.5cm] w-[9cm] flex flex-col justify-between '>
 				<div>
 					{/* Name and Color */}
-					<div className='text-[12.75pt] my-5 tracking-wider'>
+					<div className='text-[12.75pt] my-5'>
 						<h1 className='font-medium uppercase'>
 							{fabric.fabric},<span className='font-light capitalize'> {fabric.color}</span>
 						</h1>
