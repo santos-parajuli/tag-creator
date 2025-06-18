@@ -20,15 +20,15 @@ const Tag = ({ fabric, labelType }) => {
 					</div>
 
 					{/* Content rows with right-aligned labels */}
-					<div className='flex text-[7.5pt] my-[0.2cm]'>
+					<div className='flex text-[7.5pt] my-[0.25cm]'>
 						<span className='w-22 text-right font-light text-zinc-600 mr-2'>CONTENT</span>
 						<span className='font-normal'>{fabric.content}</span>
 					</div>
-					<div className='flex text-[7.5pt] my-[0.2cm]'>
+					<div className='flex text-[7.5pt] my-[0.25cm]'>
 						<span className='w-22 text-right mr-2 font-light text-zinc-600'>DOUBLE RUBS</span>
 						<span className='font-normal'>{fabric.rubs}</span>
 					</div>
-					<div className='flex text-[7.5pt] my-[0.2cm]'>
+					<div className='flex text-[7.5pt] my-[0.25cm]'>
 						<span className='w-22 text-right mr-2 font-light text-zinc-600'>WIDTH</span>
 						<span className='font-normal'>{fabric.width}</span>
 					</div>
@@ -41,7 +41,7 @@ const Tag = ({ fabric, labelType }) => {
 								<QRCode fgColor='#000000' value={'https://www.tonicliving.ca/'} size={75} />
 							</div>
 						</div>
-						<div className=' font-medium flex flex-wrap flex-col text-[7.5pt] font-normal gap-[0.2cm] mb-[0.3cm]'>
+						<div className=' font-medium flex flex-wrap flex-col text-[7.5pt] font-normal gap-[0.25cm] mb-[0.3cm]'>
 							{['Drapery', 'Upholstery', 'Romans', 'High-Performance', 'Pillows'].map((item) => (
 								<div key={item} className='flex flex-row items-center '>
 									<div className='w-2 h-2 mr-1'>
