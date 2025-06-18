@@ -10,7 +10,7 @@ const Tag = ({ fabric, labelType }) => {
 			</div>
 
 			{/* Main content */}
-			<div className=' pl-[0.5cm] w-[9.1cm] flex flex-col justify-between tracking-[0.095em] '>
+			<div className=' pl-[0.5cm] w-[9.1cm] flex flex-col justify-between tracking-[0.05em] '>
 				<div>
 					{/* Name and Color */}
 					<div className='text-[12.75pt] my-5'>
