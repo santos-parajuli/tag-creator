@@ -1,3 +1,12 @@
+'use client';
+
+import { Check, ChevronsUpDown } from 'lucide-react';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './ui/command';
+import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import React, { useState } from 'react';
+
+import { Button } from './ui/button';
+import { cn } from '@/lib/utils';
 const FabricSelector = ({ fabrics, onSelect, disabled }) => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState('');
@@ -46,3 +55,4 @@ const FabricSelector = ({ fabrics, onSelect, disabled }) => {
     </Popover>
   );
 };
+export default FabricSelector;
