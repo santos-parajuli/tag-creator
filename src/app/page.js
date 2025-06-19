@@ -66,7 +66,7 @@ export default function Home() {
 
   return (
     <div className="p-4">
-      <div className="mb-6">
+      <div className="mb-6 non-printable">
         <FabricSelector 
           fabrics={fabrics} 
           onSelect={handleSelectFabric}
@@ -79,7 +79,7 @@ export default function Home() {
 
       {/* Selected Fabrics List */}
       {selectedFabrics.length > 0 && (
-        <div className="mb-6 space-y-4">
+        <div className="mb-6 space-y-4 non-printable">
           <h3 className="text-sm font-medium">Selected Fabrics:</h3>
           {selectedFabrics.map((fabric, index) => (
             <div key={`selected-${index}`} className="p-3 bg-gray-50 rounded-lg">
@@ -99,9 +99,13 @@ export default function Home() {
                   onChange={(e) => handleLabelTypeChange(index, e.target.value)}
                   className="border border-gray-300 rounded px-2 py-1 text-sm"
                 >
-                  {fabric.labelTypes.map(type => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
+                  
+                    <option value='Multi-Use'>Multi-Use</option>
+    					<option value='High Performance'>High Performance</option>
+    					<option value='Indoor / Outdoor'>Indoor / Outdoor</option>
+    					<option value='Drapery'>Drapery</option>
+    					<option value='Velvet'>Velvet</option>
+                  
                 </select>
               </div>
             </div>
@@ -160,58 +164,8 @@ export default function Home() {
         .tag-wrapper,
         .tag-wrapper * {
           visibility: visible;
-          border: none !important;
         }
         
-        .screen-view {
-          position: absolute;
-          top: 0;
-          left: 0;
-          display: block;
-          width: 100%;
-          height: 100%;
-          padding: 0;
-          margin: 0;
-        }
-        
-        .tag-wrapper {
-          display: block;
-          height: 8.5cm !important;
-          width: 15.5cm !important;
-          margin: 0 auto;
-          position: relative;
-          overflow: hidden;
-          page-break-inside: avoid;
-        }
-        
-        /* Cutting guide overlay */
-        .tag-wrapper::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          border: 1.5pt dotted #999 !important;
-          pointer-events: none;
-          box-sizing: border-box;
-        }
-        
-        /* Add space between tags */
-        .tag-wrapper:not(:last-child) {
-          margin-bottom: 1cm;
-        }
-        
-        /* Center the tags vertically with equal spacing */
-        .screen-view {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 1cm;
-        }
-        
-        /* Hide non-printable elements */
         .non-printable {
           display: none !important;
         }
