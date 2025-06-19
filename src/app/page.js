@@ -9,7 +9,6 @@ const EXCEL_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQswNRNsPud0B
 export default function Home() {
   const [fabrics, setFabrics] = useState([]);
   const [selectedFabrics, setSelectedFabrics] = useState([]);
-  const [labelType, setLabelType] = useState('Multi-Use');
 
   useEffect(() => {
     fetch(EXCEL_URL)
@@ -39,20 +38,29 @@ export default function Home() {
     if (usage.includes('Drapery')) types.push('Drapery');
     if (usage.includes('High Performance')) types.push('High Performance');
     if (usage.includes('Outdoor')) types.push('Indoor/Outdoor');
-    if (usage.includes('Pillow')) types.push('Multi-Use, Pillow Only');
-    if (types.length === 0) types.push('Multi-Use');
+    if (usage.includes('Pillow')) types.push('Pillow Only');
+    types.push('Multi-Use'); // Always available
     return types;
   };
 
   const handleSelectFabric = (fabric) => {
     if (selectedFabrics.length < 3 && !selectedFabrics.some(f => f.fabric === fabric.fabric && f.color === fabric.color)) {
-      setSelectedFabrics([...selectedFabrics, fabric]);
+      setSelectedFabrics([...selectedFabrics, {
+        ...fabric,
+        selectedLabelType: fabric.labelTypes[0] // Set first available type as default
+      }]);
     }
   };
 
   const handleRemoveFabric = (index) => {
     const updated = [...selectedFabrics];
     updated.splice(index, 1);
+    setSelectedFabrics(updated);
+  };
+
+  const handleLabelTypeChange = (index, newType) => {
+    const updated = [...selectedFabrics];
+    updated[index].selectedLabelType = newType;
     setSelectedFabrics(updated);
   };
 
@@ -71,48 +79,41 @@ export default function Home() {
 
       {/* Selected Fabrics List */}
       {selectedFabrics.length > 0 && (
-        <div className="mb-6">
-          <h3 className="text-sm font-medium mb-2">Selected Fabrics:</h3>
-          <ul className="space-y-2">
-            {selectedFabrics.map((fabric, index) => (
-              <li key={`${fabric.fabric}-${fabric.color}-${index}`} className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                <span>{fabric.fabric} - {fabric.color}</span>
+        <div className="mb-6 space-y-4">
+          <h3 className="text-sm font-medium">Selected Fabrics:</h3>
+          {selectedFabrics.map((fabric, index) => (
+            <div key={`selected-${index}`} className="p-3 bg-gray-50 rounded-lg">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-medium">{fabric.fabric} - {fabric.color}</span>
                 <button 
                   onClick={() => handleRemoveFabric(index)}
-                  className="text-red-500 hover:text-red-700"
+                  className="text-red-500 hover:text-red-700 text-sm"
                 >
                   Remove
                 </button>
-              </li>
-            ))}
-          </ul>
+              </div>
+              <div className="flex items-center">
+                <label className="text-sm mr-2">Label Type:</label>
+                <select
+                  value={fabric.selectedLabelType}
+                  onChange={(e) => handleLabelTypeChange(index, e.target.value)}
+                  className="border border-gray-300 rounded px-2 py-1 text-sm"
+                >
+                  {fabric.labelTypes.map(type => (
+                    <option key={type} value={type}>{type}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          ))}
         </div>
       )}
 
-      {/* Label Type Selection */}
-      <div className='my-4'>
-        <label htmlFor='labelType' className='block text-sm font-medium text-gray-700 mb-1'>
-          Label Type:
-        </label>
-        <select 
-          id='labelType' 
-          value={labelType} 
-          onChange={(e) => setLabelType(e.target.value)} 
-          className='border border-gray-300 rounded px-3 py-1 text-sm'
-        >
-          <option value='Multi-Use'>Multi-Use</option>
-          <option value='High Performance'>High Performance</option>
-          <option value='Indoor/Outdoor'>Indoor/Outdoor</option>
-          <option value='Drapery'>Drapery</option>
-          <option value='Velvet'>Velvet</option>
-        </select>
-      </div>
-
       {/* Tags for Printing */}
-      <div className="space-y-4">
+      <div className="print-container">
         {selectedFabrics.map((fabric, index) => (
-          <div key={`tag-${index}`} className="page-break">
-            <Tag fabric={fabric} labelType={labelType} />
+          <div key={`tag-${index}`} className="tag-page">
+            <Tag fabric={fabric} labelType={fabric.selectedLabelType} />
           </div>
         ))}
       </div>
@@ -126,6 +127,25 @@ export default function Home() {
           Print Tags
         </button>
       )}
+
+      <style jsx global>{`
+        @media print {
+          body * {
+            visibility: hidden;
+          }
+          .print-container, .print-container * {
+            visibility: visible;
+          }
+          .tag-page {
+            page-break-after: always;
+            margin: 0;
+            padding: 0;
+          }
+          .tag-page:last-child {
+            page-break-after: auto;
+          }
+        }
+      `}</style>
     </div>
   );
 }
