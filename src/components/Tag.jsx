@@ -8,7 +8,7 @@ const Tag = ({ fabric, labelType }) => {
 			{/* Vertical Fabric Type label */}
 <div className='bg-zinc-200 p-4 text-zinc-400/60 flex items-end justify-center w-[1.25cm] h-full relative'>
   <h2 
-    className='uppercase text-[16.3pt] leading-[19pt] tracking-[0.125em] whitespace-nowrap absolute mb-[20px] bottom-0'
+    className='uppercase text-[16.3pt] leading-[19pt] tracking-[0.125em] whitespace-nowrap absolute mb-[15px] bottom-0'
     style={{
       writingMode: 'vertical-rl',
       transform: 'rotate(180deg)',
@@ -52,6 +52,8 @@ const Tag = ({ fabric, labelType }) => {
 								<QRCode fgColor='#000000' value={'https://www.tonicliving.ca/'} size={75} />
 							</div>
 						</div>
+						{fabric.usage}
+						{fabric.URL}
 						<div className=' font-normal text-zinc-600  flex flex-wrap flex-col text-[7.5pt] gap-[0.25cm] mb-[0.3cm]'>
 							{['Drapery', 'Upholstery', 'Romans', 'High-Performance', 'Pillows'].map((item) => (
 								<div key={item} className='flex flex-row items-center '>
