@@ -60,7 +60,7 @@ const Tag = ({ fabric, labelType }) => {
 							  .map((item) => (
 							    <div key={item} className='flex flex-row items-center'>
 							      <div className='w-2 h-2 mr-1'>
-							        <img src='/Check.svg' className='w-2 h-2 mr-1' alt='checkbox' />
+								      <img src='/Cross.svg' className='w-2 h-2 mr-1' alt='checkbox' />
 							      </div>
 							      {item}
 							    </div>
