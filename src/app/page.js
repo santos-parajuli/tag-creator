@@ -126,7 +126,7 @@ export default function Home() {
         </button>
       )}
 
-      <style jsx global>{`
+       <style jsx global>{`
       /* Screen styles (for editing) */
       .screen-view {
         display: flex;
@@ -139,7 +139,7 @@ export default function Home() {
         border: 1px dashed #ccc; /* Visual guide for editing */
       }
 
-      /* Print styles with cutting guides */
+      /* Print styles with vertical stacking and cutting guides */
       @media print {
         @page {
           size: A4;
@@ -167,9 +167,7 @@ export default function Home() {
           position: absolute;
           top: 0;
           left: 0;
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0;
+          display: block;
           width: 100%;
           height: 100%;
           padding: 0;
@@ -177,11 +175,10 @@ export default function Home() {
         }
         
         .tag-wrapper {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 8.5cm;
-          width: 15.5cm;
+          display: block;
+          height: 8.5cm !important;
+          width: 15.5cm !important;
+          margin: 0 auto;
           position: relative;
           overflow: hidden;
           page-break-inside: avoid;
@@ -198,6 +195,20 @@ export default function Home() {
           border: 1.5pt dotted #999 !important;
           pointer-events: none;
           box-sizing: border-box;
+        }
+        
+        /* Add space between tags */
+        .tag-wrapper:not(:last-child) {
+          margin-bottom: 1cm;
+        }
+        
+        /* Center the tags vertically with equal spacing */
+        .screen-view {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1cm;
         }
         
         /* Hide non-printable elements */
