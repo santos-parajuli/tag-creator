@@ -70,8 +70,6 @@ const Tag = ({ fabric, labelType }) => {
 				</div>
 			</div>
 			<div className=' py-[1cm] px-[.2cm]  w-[5cm] flex flex-col justify-between'>
-			<p>Type of fabric.usage: {typeof fabric.usage}</p>
-			<p>{fabric.URL}</p>
 			</div>
 		</div>
 	);
