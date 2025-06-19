@@ -1,53 +1,48 @@
-'use client';
+const FabricSelector = ({ fabrics, onSelect, disabled }) => {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState('');
 
-import { Check, ChevronsUpDown } from 'lucide-react';
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './ui/command';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import React, { useState } from 'react';
+  const filteredFabrics = fabrics.filter(fabric => 
+    `${fabric.fabric} ${fabric.color}`.toLowerCase().includes(search.toLowerCase())
+  );
 
-import { Button } from './ui/button';
-import { cn } from '@/lib/utils';
-
-const FabricSelector = ({ fabrics, selectedIndex, onSelect }) => {
-	const [open, setOpen] = useState(false);
-
-	const selectedLabel = selectedIndex !== null ? `${fabrics[selectedIndex].fabric} - ${fabrics[selectedIndex].color}` : 'Select a fabric';
-
-	return (
-		<Popover open={open} onOpenChange={setOpen}>
-			<PopoverTrigger asChild>
-				<Button variant='outline' role='combobox' className='w-[300px] justify-between'>
-					{selectedLabel}
-					<ChevronsUpDown className='ml-2 h-4 w-4 opacity-50' />
-				</Button>
-			</PopoverTrigger>
-			<PopoverContent className='w-[300px] p-0'>
-				<Command>
-					<CommandInput placeholder='Search fabric...' />
-					<CommandList>
-						<CommandEmpty>No fabric found.</CommandEmpty>
-						<CommandGroup heading='Fabrics'>
-							{fabrics.map((fabric, idx) => {
-								const label = `${fabric.fabric} - ${fabric.color}`;
-								return (
-									<CommandItem
-										key={idx}
-										value={label}
-										onSelect={() => {
-											onSelect(idx);
-											setOpen(false);
-										}}>
-										{label}
-										<Check className={cn('ml-auto h-4 w-4', selectedIndex === idx ? 'opacity-100' : 'opacity-0')} />
-									</CommandItem>
-								);
-							})}
-						</CommandGroup>
-					</CommandList>
-				</Command>
-			</PopoverContent>
-		</Popover>
-	);
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button variant='outline' role='combobox' disabled={disabled} className='w-[300px] justify-between'>
+          {disabled ? 'Maximum selected' : 'Select fabric...'}
+          <ChevronsUpDown className='ml-2 h-4 w-4 opacity-50' />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className='w-[300px] p-0'>
+        <Command>
+          <CommandInput 
+            placeholder='Search fabric...' 
+            value={search}
+            onValueChange={setSearch}
+          />
+          <CommandList>
+            <CommandEmpty>No fabric found.</CommandEmpty>
+            <CommandGroup heading='Fabrics'>
+              {filteredFabrics.map((fabric, idx) => {
+                const label = `${fabric.fabric} - ${fabric.color}`;
+                return (
+                  <CommandItem
+                    key={idx}
+                    value={label}
+                    onSelect={() => {
+                      onSelect(fabric);
+                      setOpen(false);
+                      setSearch('');
+                    }}>
+                    {label}
+                  </CommandItem>
+                );
+              })}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
 };
-
-export default FabricSelector;
