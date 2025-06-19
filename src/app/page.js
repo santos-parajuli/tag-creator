@@ -66,7 +66,7 @@ export default function Home() {
 				<select id='labelType' value={labelType} onChange={(e) => setLabelType(e.target.value)} className='border border-gray-300 rounded px-3 py-1 text-sm'>
 					<option value='Multi-Use'>Multi-Use</option>
 					<option value='High Performance'>High Performance</option>
-					<option value='Indoor/Outdoor'>Indoor/Outdoor</option>
+					<option value='Indoor / Outdoor'>Indoor / Outdoor</option>
 					<option value='Drapery'>Drapery</option>
 					<option value='Velvet'>Velvet</option>
 	
