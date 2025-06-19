@@ -21,8 +21,7 @@ const Tag = ({ fabric, labelType }) => {
 </div>
 
 			{/* Main content */}
-			<div className=' pl-[0.5cm] w-[9.1cm] flex text-zinc-500 flex-col justify-between tracking-[0.05em] '>
-				<div>
+			<div className=' pl-[0.5cm] w-[9.1cm] flex text-zinc-500 gap-1 flex-col justify-between tracking-[0.05em] '>
 					{/* Name and Color */}
 					<div className='text-[12.75pt] my-5'>
 						<h1 className='font-medium uppercase text-zinc-700 tracking-[0.125em] leading-[19pt]'>
@@ -66,7 +65,6 @@ const Tag = ({ fabric, labelType }) => {
 							    </div>
 							  ))}
 						</div>
-					</div>
 				</div>
 			</div>
 			<div className=' py-[1cm] px-[.2cm]  w-[5cm] flex flex-col justify-between'>
