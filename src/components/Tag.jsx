@@ -3,7 +3,7 @@ import React from 'react';
 
 const Tag = ({ fabric, labelType }) => {
 	return (
-		<div className='w-[15.5cm] font-[Browstd] h-[7.5cm] border border-gray-300 font-sans flex m-auto leading-[8pt] '>
+		<div className='w-[15.5cm] font-[Browstd] h-[8.5cm] border border-gray-300 font-sans flex m-auto leading-[8pt] '>
 			{/* Vertical Fabric Type label */}
 			{/* Vertical Fabric Type label */}
 <div className='bg-zinc-200 p-4 text-zinc-400/60 flex items-end justify-center w-[1.25cm] h-full relative'>
