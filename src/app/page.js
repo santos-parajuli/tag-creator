@@ -109,13 +109,13 @@ export default function Home() {
         </div>
       )}
 
-       <div className="tags-container non-printable">
-        {selectedFabrics.map((fabric, index) => (
-          <div key={`tag-${index}`} className="print-tag">
-            <Tag fabric={fabric} labelType={fabric.selectedLabelType} />
-          </div>
-        ))}
-      </div>
+        <div className="screen-view">
+          {selectedFabrics.map((fabric, index) => (
+            <div key={`tag-${index}`} className="tag-wrapper">
+              <Tag fabric={fabric} labelType={fabric.selectedLabelType} />
+            </div>
+          ))}
+        </div>
 
        {selectedFabrics.length > 0 && (
         <button
@@ -127,51 +127,57 @@ export default function Home() {
       )}
 
       <style jsx global>{`
-        @media print {
-          body * {
-            visibility: hidden;
-            margin: 0 !important;
-            padding: 0 !important;
-          }
-          
-          .tags-container, 
-          .tags-container *,
-          .print-tag,
-          .print-tag * {
-            visibility: visible;
-            margin: 0 !important;
-            padding: 0 !important;
-          }
-          
-          .tags-container {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
-          
-          .print-tag {
-            display: block;
-            margin-bottom: 0 !important;
-          }
-          
-          .non-printable {
-            display: none;
-          }
+      /* Screen styles (for editing) */
+      .screen-view {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1rem 0;
+      }
+
+      .tag-wrapper {
+        border: 1px dashed #ccc; /* Visual guide for editing */
+      }
+
+      /* Print styles */
+      @media print {
+        body * {
+          visibility: hidden;
+          margin: 0 !important;
+          padding: 0 !important;
         }
         
-        /* Regular screen styles */
-        .tags-container {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          margin-top: 1rem;
+        .screen-view,
+        .screen-view *,
+        .tag-wrapper,
+        .tag-wrapper * {
+          visibility: visible;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: none !important;
         }
         
-        .print-tag {
-          border: 1px dashed #ccc; /* Visual guide for screen */
+        .screen-view {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
         }
-      `}</style>
+        
+        .tag-wrapper {
+          display: block;
+          height: 7.5cm; /* Match your tag height */
+          width: 15.5cm; /* Match your tag width */
+          margin-bottom: 0 !important;
+        }
+        
+        /* Hide non-printable elements */
+        .non-printable {
+          display: none !important;
+        }
+      }
+    `}</style>
     </div>
   );
 }
