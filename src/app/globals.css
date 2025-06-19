@@ -9,22 +9,22 @@
 	font-style: normal;
 	font-display: swap;
 }
+
 @media print {
-  body * {
-    visibility: hidden;
-  }
-  .page-break, .page-break * {
-    visibility: visible;
-  }
-  .page-break {
-    position: absolute;
-    left: 0;
-    top: 0;
+  body {
     margin: 0;
     padding: 0;
   }
-  .page-break + .page-break {
-    page-break-before: always;
+  
+  .tag-page {
+    break-after: page;
+    height: 8.5cm;
+    width: 15.5cm;
+    margin: 0 auto;
+  }
+  
+  .tag-page:last-child {
+    break-after: auto;
   }
 }
 
