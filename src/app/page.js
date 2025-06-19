@@ -109,20 +109,18 @@ export default function Home() {
         </div>
       )}
 
-      {/* Tags for Printing */}
-      <div className="print-container">
+       <div className="tags-container non-printable">
         {selectedFabrics.map((fabric, index) => (
-          <div key={`tag-${index}`} className="tag-page">
+          <div key={`tag-${index}`} className="print-tag">
             <Tag fabric={fabric} labelType={fabric.selectedLabelType} />
           </div>
         ))}
       </div>
 
-      {/* Print Button */}
-      {selectedFabrics.length > 0 && (
+       {selectedFabrics.length > 0 && (
         <button
           onClick={() => window.print()}
-          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded non-printable"
         >
           Print Tags
         </button>
@@ -132,18 +130,46 @@ export default function Home() {
         @media print {
           body * {
             visibility: hidden;
+            margin: 0 !important;
+            padding: 0 !important;
           }
-          .print-container, .print-container * {
+          
+          .tags-container, 
+          .tags-container *,
+          .print-tag,
+          .print-tag * {
             visibility: visible;
+            margin: 0 !important;
+            padding: 0 !important;
           }
-          .tag-page {
-            page-break-after: always;
-            margin: 0;
-            padding: 0;
+          
+          .tags-container {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
           }
-          .tag-page:last-child {
-            page-break-after: auto;
+          
+          .print-tag {
+            display: block;
+            margin-bottom: 0 !important;
           }
+          
+          .non-printable {
+            display: none;
+          }
+        }
+        
+        /* Regular screen styles */
+        .tags-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+        
+        .print-tag {
+          border: 1px dashed #ccc; /* Visual guide for screen */
         }
       `}</style>
     </div>
