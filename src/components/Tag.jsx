@@ -53,6 +53,7 @@ const Tag = ({ fabric, labelType }) => {
 							</div>
 						</div>
 						{fabric.usage}
+						
 						{fabric.URL}
 						<div className=' font-normal text-zinc-600  flex flex-wrap flex-col text-[7.5pt] gap-[0.25cm] mb-[0.3cm]'>
 							{['Drapery', 'Upholstery', 'Romans', 'High-Performance', 'Pillows'].map((item) => (
@@ -67,7 +68,10 @@ const Tag = ({ fabric, labelType }) => {
 					</div>
 				</div>
 			</div>
-			<div className=' py-[1cm] px-[.2cm]  w-[5cm] flex flex-col justify-between'></div>
+			<div className=' py-[1cm] px-[.2cm]  w-[5cm] flex flex-col justify-between'>
+			<p>Type of fabric.usage: {typeof fabric.usage}</p>
+			<p>{fabric.URL}</p>
+			</div>
 		</div>
 	);
 };
