@@ -29,6 +29,7 @@ export default function Home() {
 					width: row.Width,
 					rubs: row['Double Rubs'],
 					usage: row.Usage,
+					URL:row.URL,
 					// Parse usage to determine available label types
 					labelTypes: parseUsageToLabelTypes(row.Usage),
 				}));
