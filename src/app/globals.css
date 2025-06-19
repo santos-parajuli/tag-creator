@@ -9,6 +9,21 @@
 	font-style: normal;
 	font-display: swap;
 }
+@page {
+  size: A4;
+  margin: 0;
+}
+.tag-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1.5pt dotted #999 !important;
+  pointer-events: none;
+  box-sizing: border-box;
+}
 
 @theme inline {
 	--color-background: var(--background);
