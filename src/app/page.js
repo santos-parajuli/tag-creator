@@ -44,7 +44,7 @@ export default function Home() {
 
 		if (usage.includes('Drapery')) types.push('Drapery');
 		if (usage.includes('High Performance')) types.push('High Performance');
-		if (usage.includes('Outdoor')) types.push('High Performance/Outdoor');
+		if (usage.includes('Outdoor')) types.push('Indoor/Outdoor');
 		if (usage.includes('Pillow')) types.push('Multi-Use, Pillow Only');
 
 		// Default to Multi-Use if no specific types found
@@ -66,10 +66,10 @@ export default function Home() {
 				<select id='labelType' value={labelType} onChange={(e) => setLabelType(e.target.value)} className='border border-gray-300 rounded px-3 py-1 text-sm'>
 					<option value='Multi-Use'>Multi-Use</option>
 					<option value='High Performance'>High Performance</option>
-					<option value='High Performance/Outdoor'>High Performance/Outdoor</option>
+					<option value='Indoor/Outdoor'>Indoor/Outdoor</option>
 					<option value='Drapery'>Drapery</option>
-					<option value='Multi-Use, Pillow Only'>Multi-Use, Pillow Only</option>
-					<option value='Double Width, Drapery'>Double Width, Drapery</option>
+					<option value='Velvet'>Velvet</option>
+	
 				</select>
 			</div>
 			{selectedFabric && <Tag fabric={selectedFabric} labelType={labelType} />}
