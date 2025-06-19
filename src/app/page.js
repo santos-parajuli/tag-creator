@@ -143,8 +143,6 @@ export default function Home() {
       @media print {
         body * {
           visibility: hidden;
-          margin: 0 !important;
-          padding: 0 !important;
         }
         
         .screen-view,
@@ -152,8 +150,6 @@ export default function Home() {
         .tag-wrapper,
         .tag-wrapper * {
           visibility: visible;
-          margin: 0 !important;
-          padding: 0 !important;
           border: none !important;
         }
         
@@ -167,9 +163,9 @@ export default function Home() {
         
         .tag-wrapper {
           display: block;
-          height: 7.5cm; /* Match your tag height */
+          height: 8.5cm; /* Match your tag height */
           width: 15.5cm; /* Match your tag width */
-          margin-bottom: 0 !important;
+          margin-bottom: 0 ;
         }
         
         /* Hide non-printable elements */
