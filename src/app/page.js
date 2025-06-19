@@ -139,8 +139,18 @@ export default function Home() {
         border: 1px dashed #ccc; /* Visual guide for editing */
       }
 
-      /* Print styles */
+      /* Print styles with cutting guides */
       @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        
         body * {
           visibility: hidden;
         }
@@ -157,15 +167,37 @@ export default function Home() {
           position: absolute;
           top: 0;
           left: 0;
-          display: block;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0;
           width: 100%;
+          height: 100%;
+          padding: 0;
+          margin: 0;
         }
         
         .tag-wrapper {
-          display: block;
-          height: 8.5cm; /* Match your tag height */
-          width: 15.5cm; /* Match your tag width */
-          margin-bottom: 0 ;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 8.5cm;
+          width: 15.5cm;
+          position: relative;
+          overflow: hidden;
+          page-break-inside: avoid;
+        }
+        
+        /* Cutting guide overlay */
+        .tag-wrapper::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border: 1.5pt dotted #999 !important;
+          pointer-events: none;
+          box-sizing: border-box;
         }
         
         /* Hide non-printable elements */
