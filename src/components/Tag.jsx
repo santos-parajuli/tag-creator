@@ -49,21 +49,22 @@ const Tag = ({ fabric, labelType }) => {
 						<div className='flex flex-col items-end mr-2'>
 							<span className='w-22 text-right font-light'>USAGE</span>
 							<div className='h-[2cm] w-[2cm]  mt-1'>
-								<QRCode fgColor='#000000' value={'https://www.tonicliving.ca/'} size={75} />
+								<QRCode fgColor='#000000' value={fabric.URL?fabric.URL:"https://www.tonicliving.com/"} size={75} />
 							</div>
 						</div>
-						{fabric.usage}
-						
-						{fabric.URL}
 						<div className=' font-normal text-zinc-600  flex flex-wrap flex-col text-[7.5pt] gap-[0.25cm] mb-[0.3cm]'>
-							{['Drapery', 'Upholstery', 'Romans', 'High-Performance', 'Pillows'].map((item) => (
-								<div key={item} className='flex flex-row items-center '>
-									<div className='w-2 h-2 mr-1'>
-										<img src='/Cross.svg' className='w-2 h-2 mr-1' alt='checkbox' />
-									</div>
-									{item}
-								</div>
-							))}
+							{fabric.usage
+							  .split(',') // Split by comma
+							  .map(item => item.trim()) // Trim whitespace
+							  .filter(item => item) // Remove empty strings
+							  .map((item) => (
+							    <div key={item} className='flex flex-row items-center'>
+							      <div className='w-2 h-2 mr-1'>
+							        <img src='/Check.svg' className='w-2 h-2 mr-1' alt='checkbox' />
+							      </div>
+							      {item}
+							    </div>
+							  ))}
 						</div>
 					</div>
 				</div>
