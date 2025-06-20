@@ -32,22 +32,22 @@ const Tag = ({ fabric, labelType }) => {
 
 					{/* Content rows with right-aligned labels */}
 					<div className='flex text-[7.5pt] my-[0.25cm]'>
-						<span className='w-22 text-right font-light  mr-2'>CONTENT</span>
+						<span className='w-22 min-w-22 text-right font-light  mr-2'>CONTENT</span>
 						<span className='font-normal text-zinc-600 '>{fabric.content}</span>
 					</div>
 					<div className='flex text-[7.5pt] my-[0.25cm]'>
-						<span className='w-22 text-right mr-2 font-light '>DOUBLE RUBS</span>
+						<span className='w-22 min-w-22 text-right mr-2 font-light '>DOUBLE RUBS</span>
 						<span className='font-normal text-zinc-600 '>{fabric.rubs?Number(fabric.rubs).toLocaleString():"n/a"}</span>
 					</div>
 					<div className='flex text-[7.5pt] my-[0.25cm]'>
-						<span className='w-22 text-right mr-2 font-light'>WIDTH</span>
+						<span className='w-22 min-w-22 text-right mr-2 font-light'>WIDTH</span>
 						<span className='font-normal text-zinc-600 '>{fabric.width}</span>
 					</div>
 
 					{/* Usage */}
 					<div className='flex text-[7.5pt] mt-3'>
 						<div className='flex flex-col items-end mr-2'>
-							<span className='w-22 text-right font-light'>USAGE</span>
+							<span className='w-22 min-w-22 text-right font-light'>USAGE</span>
 							<div className='h-[2cm] w-[2cm]  mt-1'>
 								<QRCode fgColor='#000000' value={fabric.URL?fabric.URL:"https://www.tonicliving.com/"} size={75} />
 							</div>
