@@ -37,7 +37,12 @@ const Tag = ({ fabric, labelType }) => {
 					</div>
 					<div className='flex text-[7.5pt] my-[0.25cm]'>
 						<span className='w-22 min-w-22 text-right mr-2 font-light '>DOUBLE RUBS</span>
-						<span className='font-normal text-zinc-600 '>{fabric.rubs?Number(fabric.rubs).toLocaleString():"n/a"}</span>
+						<span className='font-normal text-zinc-600'>
+						  {(typeof fabric.rubs === 'number' || 
+						    (typeof fabric.rubs === 'string' && !isNaN(fabric.rubs)))
+						    ? Number(fabric.rubs).toLocaleString()
+						    : 'n/a'}
+						</span>
 					</div>
 					<div className='flex text-[7.5pt] my-[0.25cm]'>
 						<span className='w-22 min-w-22 text-right mr-2 font-light'>WIDTH</span>
