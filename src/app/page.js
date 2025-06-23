@@ -26,27 +26,26 @@ export default function Home() {
           rubs: row['Double Rubs'],
           usage: row.Usage,
           URL: row.URL,
-          labelTypes: parseUsageToLabelTypes(row.Usage),
+          labelType: parseUsageToLabelType(row.Usage), 
         }));
 
         setFabrics(transformedData);
       });
   }, []);
 
-  const parseUsageToLabelTypes = (usage) => {
-    const types = [];
-    if (usage.includes('Drapery')) types.push('Drapery');
-    if (usage.includes('High Performance')) types.push('High Performance');
-    if (usage.includes('Outdoor')) types.push('Indoor/Outdoor');
-    types.push('Multi-Use'); // Always available
-    return types;
+const parseUsageToLabelType = (usage) => {
+    if (usage.includes('High Performance')) return 'High Performance';
+    if (usage.includes('Outdoor')) return 'Indoor/Outdoor';
+    if (usage.includes('Drapery')) return 'Drapery';
+    if (usage.includes('Velvet')) return 'Velvet';
+    return 'Multi-Use';
   };
 
   const handleSelectFabric = (fabric) => {
     if (selectedFabrics.length < 3 && !selectedFabrics.some(f => f.fabric === fabric.fabric && f.color === fabric.color)) {
       setSelectedFabrics([...selectedFabrics, {
         ...fabric,
-        selectedLabelType: fabric.labelTypes[0] // Set first available type as default
+        selectedLabelType: fabric.labelType // Set first available type as default
       }]);
     }
   };
