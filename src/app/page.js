@@ -28,7 +28,6 @@ export default function Home() {
           URL: row.URL,
           labelType: parseUsageToLabelType(row.Usage), 
         }));
-        console.log(transformedData.labelType);
         setFabrics(transformedData);
       });
   }, []);
@@ -50,8 +49,9 @@ const parseUsageToLabelType = (usage) => {
     if (selectedFabrics.length < 3 && !selectedFabrics.some(f => f.fabric === fabric.fabric && f.color === fabric.color)) {
       setSelectedFabrics([...selectedFabrics, {
         ...fabric,
-        selectedLabelType: parseUsageToLabelType(fabric.Usage) // Set first available type as default
+        selectedLabelType: fabric.labelType // Set first available type as default
       }]);
+      console.log(fabric);
     }
   };
 
