@@ -34,12 +34,17 @@ export default function Home() {
   }, []);
 
 const parseUsageToLabelType = (usage) => {
-    if (usage.includes('High Performance')) return 'High Performance';
-    if (usage.includes('Outdoor')) return 'Indoor/Outdoor';
-    if (usage.includes('Drapery')) return 'Drapery';
-    if (usage.includes('Velvet')) return 'Velvet';
-    return 'Multi-Use';
-  };
+  // Handle undefined/null/empty cases
+  if (!usage) return 'Multi-Use';
+  // Convert to string in case it's a number or other type
+  const usageString = String(usage).toLowerCase();
+  if (usageString.includes('high performance')) return 'High Performance';
+  if (usageString.includes('outdoor')) return 'Indoor/Outdoor';
+  if (usageString.includes('drapery')) return 'Drapery';
+  if (usageString.includes('velvet')) return 'Velvet';
+  
+  return 'Multi-Use';
+};
 
   const handleSelectFabric = (fabric) => {
     if (selectedFabrics.length < 3 && !selectedFabrics.some(f => f.fabric === fabric.fabric && f.color === fabric.color)) {
