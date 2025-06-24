@@ -39,7 +39,12 @@ const parseUsageToLabelType = (usage) => {
   const usageString = String(usage).toLowerCase();
   if (usageString.includes('high performance')) return 'High Performance';
   if (usageString.includes('outdoor')) return 'Indoor/Outdoor';
-  if (usageString.includes('drapery')) return 'Drapery';
+  if (usageString.includes('drapery') && usageString.includes('light use upholstery')) {
+    return 'Drapery'; 
+  }
+  if (usageString.includes('drapery') && usageString.includes('upholstery')) {
+    return 'Multi-Use'; 
+  }
   if (usageString.includes('velvet')) return 'Velvet';
   
   return 'Multi-Use';
