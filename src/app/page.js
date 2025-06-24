@@ -117,7 +117,7 @@ const parseUsageToLabelType = (usage) => {
         <div className="screen-view">
           {selectedFabrics.map((fabric, index) => (
             <div key={`tag-${index}`} className="tag-wrapper">
-              <Tag fabric={fabric} labelType={parseUsageToLabelType(fabric.Usage)} />
+              <Tag fabric={fabric} labelType={fabric.selectedLabelType} />
             </div>
           ))}
         </div>
