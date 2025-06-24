@@ -45,6 +45,7 @@ const parseUsageToLabelType = (usage) => {
   if (usageString.includes('drapery') && usageString.includes('upholstery')) {
     return 'Multi-Use'; 
   }
+  if (usageString.includes('drapery')) return 'Drapery';
   if (usageString.includes('velvet')) return 'Velvet';
   
   return 'Multi-Use';
