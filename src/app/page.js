@@ -28,12 +28,13 @@ export default function Home() {
           URL: row.URL,
           labelType: parseUsageToLabelType(row.Usage), 
         }));
-
+        console.log(transformedData.labelType);
         setFabrics(transformedData);
       });
   }, []);
 
 const parseUsageToLabelType = (usage) => {
+    console.log(usage);
     if (usage.includes('High Performance')) return 'High Performance';
     if (usage.includes('Outdoor')) return 'Indoor/Outdoor';
     if (usage.includes('Drapery')) return 'Drapery';
