@@ -34,7 +34,6 @@ export default function Home() {
   }, []);
 
 const parseUsageToLabelType = (usage) => {
-    console.log(usage);
     if (usage.includes('High Performance')) return 'High Performance';
     if (usage.includes('Outdoor')) return 'Indoor/Outdoor';
     if (usage.includes('Drapery')) return 'Drapery';
@@ -46,7 +45,7 @@ const parseUsageToLabelType = (usage) => {
     if (selectedFabrics.length < 3 && !selectedFabrics.some(f => f.fabric === fabric.fabric && f.color === fabric.color)) {
       setSelectedFabrics([...selectedFabrics, {
         ...fabric,
-        selectedLabelType: fabric.labelType // Set first available type as default
+        selectedLabelType: parseUsageToLabelType(fabric.Usage) // Set first available type as default
       }]);
     }
   };
@@ -98,8 +97,8 @@ const parseUsageToLabelType = (usage) => {
                   onChange={(e) => handleLabelTypeChange(index, e.target.value)}
                   className="border border-gray-300 rounded px-2 py-1 text-sm"
                 >
-                    <option value='Multi-Use'>Multi-Use</option>
           					<option value='High Performance'>High Performance</option>
+                    <option value='Multi-Use'>Multi-Use</option>
           					<option value='Indoor / Outdoor'>Indoor / Outdoor</option>
           					<option value='Drapery'>Drapery</option>
           					<option value='Velvet'>Velvet</option>
@@ -113,7 +112,7 @@ const parseUsageToLabelType = (usage) => {
         <div className="screen-view">
           {selectedFabrics.map((fabric, index) => (
             <div key={`tag-${index}`} className="tag-wrapper">
-              <Tag fabric={fabric} labelType={fabric.selectedLabelType} />
+              <Tag fabric={fabric} labelType={parseUsageToLabelType(fabric.Usage)} />
             </div>
           ))}
         </div>
